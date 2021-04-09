@@ -57,20 +57,124 @@
         }
 
         .title{
-            font-size: 3.7rem;
+            font-size: 4.5rem;
             display: block;
             text-align: center;
             font-family: 'S-Core-8';
             text-decoration: none;
             color: rgb(255, 0, 150);
         }
+
+        h2{
+            font-size: 1.1rem;
+            text-align: center;
+            color:gray;
+            font-family : 'S-Core-4'
+        }
+
+       .clock{
+            font-size: 3.4rem;
+            display: block;
+            text-align: center;
+            font-family: 'S-Core-6' ;
+            color: white;
+            background-color: rgb(255, 0, 150);
+        }
+
+        .c1{
+            font-size: 2.7em;
+            display: block;
+            text-align: center;
+            font-family: 'S-Core-4';
+            text-decoration: none;
+            color : black;
+        }
+        .table2 {
+            background-color: rgb(250, 231, 191);
+            font-family: 'S-Core-3';
+            font-size: 0.8rem;
+        }
+        .github{
+            font-size: 1.0rem;
+        }
+
+        h9{
+            font-size: 1.3rem;
+            font-family: 'S-Core-6';
+            background-color: rgb(255, 255, 255);
+        }
     </style>
 
     <body>
-        <a class="title" href="https://poketgg.github.io/main/"><b>Zoom Auto Launcher HTML Ver. 2.1v</b></a><br/>
+        <a class="title" href="https://poketgg.github.io/main/"><b>Zoom Launcher</b></a><br/>
+        <h2>현재 시간</h2><body onload="showClock()">
+            <div id="divClock" class="clock"></div></br><br/>
+        <hr>
+        　
+        <div class = "table">
+        <br>
+        <a class="c1"href="https://poketgg.github.io/11cc"><b>1반(미지원)</b></a><br/>
+        <a class="c1"href="https://poketgg.github.io/22cc"><b>2반(미지원)</b></a><br/>
+        <a class="c1"href="https://poketgg.github.io/33cc"><b>3반</b></a><br/>
+        <a class="c1"href="https://poketgg.github.io/44cc"><b>4반(미지원)</b></a><br/>
+        <a class="c1"href="https://poketgg.github.io/55cc"><b>5반</b></a><br/>
+        <a class="c1"href="https://poketgg.github.io/66cc"><b>6반</b></a><br/>
+        <br><br>
+    </div>
+        <div class="table2">
+            <hr></hr>
+            　
+            <h9>　Copyright. @DIMISEUNG BY. NC.　<br/></h9>
+            <br></br>
+            <h10>　이 사이트의 저작권은 @1615 배세웅 에게 있으며, 저작자 표시를 한 경우에 한하여, 비영리 목적으로 공유 및 재가공이 가능합니다.</h10></br>
+            　원본 : <a class = github href="https://github.com/poketgg/ZAL" target="blank"><b>깃허브</b></a> (README.md 참고바람.)</br>
+            <br>
+            　경기도 안산시 단원구 사세충열로 94 한국디지털미디어고등학교<br>
+            　E-Mail : xodid1442@gmail.com 　|　 KAKAOTALK : xodid1442
+           　
+            <hr></hr>
+    </div>
     </body>
 
     <script>
+    function showClock()
+        {
+            var currentDate=new Date();
+            var divClock=document.getElementById("divClock");
+            var apm=currentDate.getHours();
+            if(apm<12)
+            {
+                apm="오전　";
+                var msg =apm +(currentDate.getHours())+"시 "
+            }
+            else
+            {
+                apm="오후　";
+                var msg =apm +(currentDate.getHours()-12)+"시 "
+            }
 
+            msg += currentDate.getMinutes() + "분 ";
+            msg += currentDate.getSeconds() + "초　"+  getTodayLabel()
+            
+            divClock.innerText=msg;
+            
+            setTimeout(showClock,1000);
+        }
+    
+        function getTodayLabel() {
+        
+            var week = new Array('일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일');
+            
+            var today = new Date().getDay();
+            var todayLabel = week[today];
+            
+            return todayLabel;
+        }
+     
+        today_week=getTodayLabel()
+        if(today_week == '토요일' || today_week == '일요일') today_week = '주말';
+        /*============*/
+        let a = new Date().getHours();
+        let b  = new Date().getMinutes();
     </script>
 
